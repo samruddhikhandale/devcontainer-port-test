@@ -1,7 +1,8 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/ruby
 {
-  "name": "audioboom-web",
+  "name": "devcontainer-test",
+  // "image": "mcr.microsoft.com/devcontainers/go",
   "dockerComposeFile": "compose.yaml",
   "service": "rails-app",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
@@ -9,25 +10,15 @@
   // Features to add to the dev container. More info: https://containers.dev/features.
   "features": {
     "ghcr.io/devcontainers-contrib/features/caddy": {},
-    "ghcr.io/devcontainers/features/github-cli:1": {}
-  },
-
-  "hostRequirements": {
-    "cpus": 4,
-    "memory": "16gb",
-    "storage": "32gb"
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/docker-outside-of-docker": {}
   },
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  "forwardPorts": [3000, 3001],
+  "forwardPorts": [3000],
   "portsAttributes": {
     "3000": {
       "label": "Caddy1",
-      "onAutoForward": "openPreview",
-      "protocol": "http"
-    },
-    "3001": {
-      "label": "Caddy2",
       "onAutoForward": "openPreview",
       "protocol": "http"
     }
@@ -36,7 +27,6 @@
   // Run every time a user connects to the codespace
   "postAttachCommand": {
     //"server": "bin/rails s",
-    "caddy1": "caddy respond \"Hello, world 1.\" --listen :3000",
-    "caddy2": "caddy respond \"Hello, world 2.\" --listen :3001"
+    "caddy1": "caddy respond \"Hello, world 1.\" --listen :3000"
   }
 }
