@@ -20,7 +20,7 @@
     "3000": {
       "label": "Caddy1",
       "onAutoForward": "openPreview",
-      "protocol": "https"
+      "protocol": "http"
     }
   },
 
