@@ -9,6 +9,8 @@ services:
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
 
+    network_mode: service:db
+    
     # Uncomment the next line to use a non-root user for all processes.
     # user: vscode
 
