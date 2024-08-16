@@ -4,13 +4,11 @@ services:
   rails-app:
     image: mcr.microsoft.com/devcontainers/go
     volumes:
+      - /var/run/docker.sock:/var/run/docker-host.sock 
       - ../..:/workspaces:cached
 
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
-
-    ports:
-      - "3000:3000" 
     
     # Uncomment the next line to use a non-root user for all processes.
     # user: vscode
